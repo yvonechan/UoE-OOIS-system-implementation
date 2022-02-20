@@ -1,0 +1,91 @@
+<html>
+<head>
+  <title>{{ title }} Page</title>
+  <style>
+    body{
+      font-family: Helvetica, Sans-Serif, Arial;
+      display: flex;
+      width: 100vw;
+      height:100vh;
+      flex-direction: row;
+      flex-wrap:wrap;
+      align-items: center;
+      justify-content:space-around;
+      background-color:#272643;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 600px;
+      height: 350px;
+      padding:30px;
+      background-color:#2c698d;
+      color: #FFFFFF;
+      margin:10px;
+      box-sizing: border-box;
+    }
+    .selectWrap{
+      display:flex;
+      justify-content: center;
+      margin:10px;
+      width:80%;
+      box-sizing: border-box;
+    }
+    #prescriptionId{
+      margin:10px;
+      width:300px;
+      line-height:25px;
+      border-radius:5px;
+      font-size:15px;
+      box-shadow:none;
+    }
+    input[type="submit"],#back{
+      font-size:15px;
+      border-radius:5px;
+      width:200px;
+      height:30px;
+      box-shadow:none;
+      background-color:transparent;
+      border: 2px solid #e3f6f5;
+      color: #e3f6f5;
+      margin-top:10px;
+    }
+  </style>
+</head>
+  <body>
+    <form action="{{ url_for("patient")}}" method="post">
+    <h2>Request Prescription Repeat</h2>
+    <label for="id">Prescription ID:</label>
+    <input type="text" id="prescriptionId" name="prescriptionId" placeholder="Prescription ID" pattern="[0-9]+">
+    <input type="submit" name="btn" value="Request Repeat">
+    </form>
+    <form action="{{ url_for("patient")}}" method="post">
+    <h2>Request Appointment</h2>
+    <label for="appointmentDate">Choose date and time:</label>
+    <div class="selectWrap">
+      <p>Date:</p>
+      <input type="date" id="appointmentDate" name="appointmentDate">
+      <p>Time:</p>
+      <select id="appointmentHour" name="appointmentHour">
+        <option value="09">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+      </select>
+      <select id="appointmentMinute" name="appointmentMinute">
+        <option value="00">00</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+    <input type="submit" name="btn" value="Request Appointment">
+    </form>
+    <button id="back" onclick="history.back()">Go Back</button>
+  </body>
+</html>

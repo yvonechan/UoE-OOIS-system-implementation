@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>{{ title }} Page</title>
+      <style>
+      body{
+        font-family: Helvetica, Sans-Serif, Arial;
+        display: flex;
+        width: 100vw;
+        height:100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+        background-color:#272643;
+      }
+      form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 600px;
+        padding:30px;
+        background-color:#2c698d;
+        color: #FFFFFF;
+      }
+      #patientId, #drug, #quantity, #dosage{
+      margin:10px;
+      width:300px;
+      line-height:25px;
+      border-radius:5px;
+      font-size:15px;
+      box-shadow:none;
+      }
+      input[type="submit"], #back{
+      font-size:15px;
+      border-radius:5px;
+      width:80px;
+      height:30px;
+      box-shadow:none;
+      background-color:transparent;
+      border: 2px solid #e3f6f5;
+      color: #e3f6f5;
+      margin-top:10px;
+      }
+    </style>
+</head>
+  <body>
+    <form action="{{ url_for("issue_prescription")}}" method="post">
+      <h2>Issue Prescription</h2>
+      <label for="patientId">Enter Patient ID:</label>
+      <input type="text" id="patientId" name="patientId" placeholder="Patient ID" required pattern="[0-9]+">
+      <label for="drug">Drug:</label>
+      <input type="text" id="drug" name="drug" placeholder="Drug name" required>
+      <label for="quantity">Duration (days):</label>
+      <input type="number" id="quantity" name="quantity" placeholder="Number of days" min="1" required>
+      <label for="dosage">Dosage:</label>
+      <input type="number" id="dosage" name="dosage" placeholder="dosage" step="0.01" min="0" required>
+      <input type="submit" name="btn" value="Submit">
+    </form>
+    <button id="back" onclick="history.back()">Go Back</button>
+  </body>
+</html>

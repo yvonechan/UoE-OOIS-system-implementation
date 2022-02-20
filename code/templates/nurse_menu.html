@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>{{ title }} Page</title>
+    <style>
+    body{
+      font-family: Helvetica, Sans-Serif, Arial;
+      display: flex;
+      width: 100vw;
+      height:100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content:center;
+      background-color:#272643;
+    }
+    .wrap{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 600px;
+      padding:30px;
+      background-color:#2c698d;
+      color: #FFFFFF;
+    }
+    .item{
+      width:400px;
+      height:30px;
+      line-height:30px;
+      margin-top:10px;
+      background-color:#bae8e8;
+      border-radius:5px;
+      color: #272643;
+      text-align:center;
+    }
+    a{
+      color: #272643;
+    }
+    #back{
+      font-size:15px;
+      border-radius:5px;
+      width:200px;
+      height:30px;
+      box-shadow:none;
+      background-color:transparent;
+      border: 2px solid #e3f6f5;
+      color: #e3f6f5;
+      margin-top:10px;
+    }
+  </style>
+</head>
+  <body>
+    <div class="wrap">
+     <h2>Nurse Page</h2>
+      <a href="{{url_for('consultation')}}"><div class="item">Consultation</div></a>
+      <a href="{{url_for('appointment_schedule')}}"><div class="item">Check Apppointment Schedule</div></a>
+    </div>
+    <button id="back" onclick="history.back()">Go Back</button>
+  </body>
+</html>
